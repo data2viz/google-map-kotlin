@@ -61,7 +61,7 @@ external class Map(mapDiv: Element, opts: MapOptions) : MVCObject {
     var overlayMapTypes: MVCArray
 }
 
-external interface MapOptions {
+external class MapOptions {
     var backgroundColor: String
     var center: LatLng
     var disableDefaultUI: Boolean

@@ -1,6 +1,4 @@
 buildscript {
-    ext.kotlin_version = '1.2.40'
-
     repositories {
         mavenCentral()
     }
@@ -9,23 +7,35 @@ buildscript {
     }
 }
 
-plugins {
-    id 'java'
+subprojects {
+    group 'io.data2viz'
+    version "$version-SNAPSHOT"
+
+    apply plugin: 'kotlin2js'
+    apply plugin: 'kotlin-dce-js'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+        testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
+    compileKotlin2Js {
+        kotlinOptions {
+            metaInfo = true
+            sourceMap = true
+            sourceMapEmbedSources = "always"
+            moduleKind = 'umd'
+            main = "call"
+        }
+    }
+
+    runDceKotlinJs.dceOptions.devMode = isDevMode
+
 }
 
-group 'io.data2viz'
-version '1.0-SNAPSHOT'
 
-apply plugin: 'kotlin2js'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-    testCompile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
