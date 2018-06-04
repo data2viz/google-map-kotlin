@@ -8,6 +8,9 @@ fun styles(init: StylesBuilder.() -> Unit) =
         .styles()
 
 
+/**
+ * StylesBuilder simplifies the styling of map by providing code completion during writing. 
+ */
 class StylesBuilder internal constructor() {
 
     val _styles = mutableListOf<Style>()
