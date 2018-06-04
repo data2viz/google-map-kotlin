@@ -25,4 +25,14 @@ fun main(args: Array<String>) {
         }
     )
     map.setZoom(3)
+
+    
+}
+
+private fun addHeatmapLayer(map: Map) {
+    val heatmapLayer = heatmapLayer {
+        this.map = map
+    }
+
+    heatmapLayer.setData(arrayOf(LatLng(46.2, 6.15)))
 }
