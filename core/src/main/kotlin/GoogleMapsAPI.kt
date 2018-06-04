@@ -3,9 +3,14 @@ import google.maps.MapOptions
 
 fun mapOptions(zoom: Int, center: LatLng, 
                init: MapOptions.() -> Unit = {}): MapOptions {
-    val ret = Any().unsafeCast<MapOptions>()
-    ret.zoom = zoom
-    ret.center = center
-    ret.init()
-    return ret
+    return createObject<MapOptions>() .apply {
+        this.zoom = zoom
+        this.center = center
+        init()
+    }
 }
+
+private inline fun <reified T> createObject():T {
+    val ret = Any()
+    return ret.unsafeCast<T>()  
+} 
