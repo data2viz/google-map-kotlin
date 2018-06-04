@@ -53,7 +53,7 @@ external class Map(mapDiv: Element, opts: MapOptions) : MVCObject {
     fun setOptions(options: MapOptions)
     fun setStreetView(panorama: StreetViewPanorama)
     fun setTilt(tilt: Double)
-    fun setZoom(zoom: Double)
+    fun setZoom(zoom: Int)
     fun addListener(event: String, function: () -> Unit)
 
     var  controls: Array<MVCArray>
