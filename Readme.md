@@ -57,8 +57,7 @@ fun main(args: Array<String>) {
     map(
         element = document.getElementById("map")!!, 
         zoom = 6, 
-        center = LatLng(46.2, 6.15)) {
-        }
+        center = LatLng(46.2, 6.15))
 } 
 ```
 
