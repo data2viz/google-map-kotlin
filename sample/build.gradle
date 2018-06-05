@@ -1,4 +1,4 @@
 
 dependencies {
-    compile project(":data2viz-gmap-js")
+    compile project(":d2v-google-maps-js")
 }
