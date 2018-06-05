@@ -1,4 +1,4 @@
-rootProject.name = 'google.map'
+rootProject.name = 'google-map-kotlin'
 
 include 'sample'
 include 'd2v-google-maps-js'

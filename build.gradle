@@ -1,18 +1,25 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintray_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
 subprojects {
     group 'io.data2viz'
-    version "$version-SNAPSHOT"
+    version "$version"
 
     apply plugin: 'kotlin2js'
     apply plugin: 'kotlin-dce-js'
+    
+    
+    if(project.name.startsWith('d2v-')){
+        apply from: rootProject.file('gradle/publish-bintray.gradle')
+    }
 
     repositories {
         mavenCentral()
