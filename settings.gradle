@@ -1,7 +1,10 @@
 rootProject.name = 'google.map'
 
 include 'sample'
-include 'data2viz-gmap-js'
+include 'd2v-google-maps-js'
+include 'd2v-google-maps-drawing-js'
+include 'd2v-google-maps-geometry-js'
+include 'd2v-google-maps-places-js'
+include 'd2v-google-maps-visualization-js'
 
-project(':data2viz-gmap-js').projectDir = file('core')
 
